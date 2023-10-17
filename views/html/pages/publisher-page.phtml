@@ -1,0 +1,42 @@
+<?php
+/**
+ * @Var \App\Blocks\Pages\PublisherPage $this
+ */
+
+use App\Controllers\BookResourceController;
+use App\Controllers\PublisherResourceController;
+
+$publisherData = $this->getEntity('publisher');
+$publisherName = $publisherData->getName() . ' ' . $publisherData->getSurname();
+?>
+
+<?php $this->renderHead($publisherName); ?>
+    <body>
+        <div class="page-container page-container_theme-dark">
+            <?php $this->renderHeader(); ?>
+            <main class="main">
+                <div class="infomation-block information-block_base-info">
+                    <img src="<?= $publisherData->getImage(); ?>" alt="Фотография автора" class="base-card__cover">
+                    <ul class="base-list base-list_card-info">
+                        <li class="base-list__item base-list__card_info">Автор: <?= $publisherName; ?></li>
+                        <li class="base-list__item base-list__card_info">Дата рождения: <?= $publisherData->getDateOfBirth(); ?></li>
+                        <li class="base-list__item base-list__card_info">Дата смерти: <?= $publisherData->getDateOfDeath(); ?></li>
+                    </ul>
+                    <div class="button-container">
+                        <a class="button-container__button" href="/<?= 'update-publisher?id=' . $publisherData->getId() ?>"><img class="button__img" src="views/img/button-update.svg"></a>
+                        <a class="button-container__button" href="/<?= 'delete-publisher?id=' . $publisherData->getId() ?>"><img class="button__img" src="views/img/button-delete.svg"></a>
+                    </div>
+                </div>
+                <div class="information-block">
+                    <p class="infomation-text">
+                       <?= $publisherData->getAnnotation(); ?>
+                    </p>
+                    <?php  $this->renderSeparator(); ?>
+                    <ul class="base-list">
+                        <?php $this->renderListPublisherBooks(); ?>
+                    </ul>
+                </div>
+            </main>
+        </div>
+    </body>
+</html>

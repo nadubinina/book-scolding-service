@@ -1,0 +1,35 @@
+<?php
+/**
+ * @Var \App\Blocks\Pages\AddcategoryPage $this
+ */
+?>
+
+<?php $this->renderHead();
+$this->renderHeader();?>
+<body>
+<div class="page-container page-container_theme-light page-container_center">
+    <main class="main main_column">
+        <h2 class="form-input__title">Добавление категории</h2>
+        <form class="form-input" method="POST">
+            <?php $this->renderToken(); ?>
+            <div class="form-input__property">
+                <label class="form-input__label" for="name">Название категории:</label>
+                <input class="form-input__input-field" type="text" id="name" name="name" required>
+            </div>
+            <div class="form-input__property">
+                <label class="form-input__label" for="category_name">Родительская категория:</label>
+                <input class="form-input__input-field" type="text" name="parent_id" list="category-parrent">
+                <datalist id="category-parrent">
+                    <?php $this->renderCategoryListWithParents() ?>
+                </datalist>
+            </div>
+            <div class="form-input__property">
+                <label class="form-input__label" for="annotation">Аннотация:</label>
+                <textarea class="form-input__input-field" id="annotation" name="annotation" rows="6" cols="50"></textarea>
+            </div>
+            <input class="form-input__button" type="submit" value="Добавить">
+        </form>
+    </main>
+</div>
+</body>
+</html>

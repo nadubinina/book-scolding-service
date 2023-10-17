@@ -1,0 +1,56 @@
+<?php
+/**
+ * @Var App\Blocks\Pages\UpdateBookPage $this
+ */
+
+$oldDataBook = $this->getEntity('book');
+?>
+
+<?php $this->renderHead();
+$this->renderHeader(); ?>
+<body>
+<div class="page-container page-container_theme-light page-container_center">
+    <main class="main main_column">
+        <h2 class="form-input__title">Удаление книги</h2>
+        <p class="form-input__warning">Внимание! При удалении книги все её копии также удаляются!</p>
+        <form class="form-input" method="POST">
+            <?php $this->renderToken(); ?>
+            <div class="form-input__property">
+                <label class="form-input__label" for="name">Книга:</label>
+                <input class="form-input__input-field" type="text" id="id" name="id" value="<?php echo $this->getBookId() ?>" readonly>
+            </div>
+            <div class="form-input__property">
+                <label class="form-input__label" for="name">Название книги:</label>
+                <input class="form-input__input-field" type="text" id="name" name="name" value="<?= $oldDataBook->getName() ?>" readonly>
+            </div>
+            <div class="form-input__property">
+                <label class="form-input__label" for="country_name">Название страны:</label>
+                <input class="form-input__input-field" name="country_id" value="<?= $oldDataBook->getCountryId() ?>" readonly>
+
+            </div>
+            <div class="form-input__property">
+                <label class="form-input__label" for="publisher_name">Автор:</label>
+                <input class="form-input__input-field" type="text" name="publisher_id" value="<?= $oldDataBook->getPublisherId() ?>" readonly>
+            </div>
+            <div class="form-input__property">
+                <label class="form-input__label" for="created_at">Дата выпуска:</label>
+                <input class="form-input__input-field" type="date" id="created_at" name="created_at" value="<?= $oldDataBook->getCreatedAt() ?>" readonly>
+            </div>
+            <div class="form-input__property">
+                <label class="form-input__label" for="price">Цена:</label>
+                <input class="form-input__input-field" type="text" id="price" name="price" value="<?= $oldDataBook->getPrice() ?>"readonly>
+            </div>
+            <div class="form-input__property">
+                <label class="form-input__label" for="category_name">Категория:</label>
+                <input class="form-input__input-field" type="text" name="category_id"  value="<?= $oldDataBook->getCategoryId() ?>" readonly>
+            </div>
+            <div class="form-input__property">
+                <label class="form-input__label" for="annotation">Аннотация:</label>
+                <textarea class="form-input__input-field" id="annotation" name="annotation" rows="6" cols="50" readonly><?= $oldDataBook->getAnnotation() ?></textarea>
+            </div>
+            <input class="form-input__button" type="submit" value="Удалить">
+        </form>
+    </main>
+</div>
+</body>
+</html>

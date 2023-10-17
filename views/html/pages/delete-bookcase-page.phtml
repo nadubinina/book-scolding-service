@@ -1,0 +1,38 @@
+<?php
+/**
+ * @Var App\Blocks\Pages\UpdateBookcasePage $this
+ */
+
+$oldDataBookcase = $this->getEntity('bookcase');
+?>
+
+<?php $this->renderHead();
+$this->renderHeader(); ?>
+<body>
+<div class="page-container page-container_theme-light page-container_center">
+    <main class="main main_column">
+        <h2 class="form-input__title">Удаление книжного шкафа</h2>
+        <form class="form-input" method="POST">
+            <?php $this->renderToken(); ?>
+            <div class="form-input__property">
+                <label class="form-input__label" for="name">Книжный шкаф:</label>
+                <input class="form-input__input-field" type="text" id="id" name="id" value="<?php echo $this->getBookcaseId() ?>" readonly>
+            </div>
+            <div class="form-input__property">
+                <label class="form-input__label" for="name">Название книжного шкафа:</label>
+                <input class="form-input__input-field" type="text" id="name" name="name" value="<?= $oldDataBookcase->getName() ?>" readonly>
+            </div>
+            <div class="form-input__property">
+                <label class="form-input__label" for="number_rows">Количество рядов:</label>
+                <input class="form-input__input-field" id="number_rows" name="number_rows" value="<?= $oldDataBookcase->getNumberRows() ?>" readonly>
+            </div>
+            <div class="form-input__property">
+                <label class="form-input__label" for="library_id">Библиотека:</label>
+                <input class="form-input__input-field" id="library_id" name="library_id"  value="<?= $oldDataBookcase->getLibraryId() ?>" readonly>
+            </div>
+            <input class="form-input__button" type="submit" value="Удалить">
+        </form>
+    </main>
+</div>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<?php
+/**
+ * @Var UpdateBookPage $this
+ */
+
+use App\Blocks\Pages\UpdateBookPage;
+
+$oldDataBook = $this->getEntity('book');
+?>
+
+<?php $this->renderHead();
+$this->renderHeader(); ?>
+<body>
+<div class="page-container page-container_theme-light page-container_center">
+    <main class="main main_column">
+        <h2 class="form-input__title">Изменение книги</h2>
+        <form class="form-input" method="POST">
+            <?php $this->renderToken(); ?>
+            <div class="form-input__property">
+                <label class="form-input__label" for="name">Книга:</label>
+                <input class="form-input__input-field" type="text" id="id" name="id" value="<?= $this->getBookId() ?>" readonly>
+            </div>
+            <div class="form-input__property">
+                <label class="form-input__label" for="name">Название книги:</label>
+                <input class="form-input__input-field" type="text" id="name" name="name" value="<?= $oldDataBook->getName() ?>">
+            </div>
+            <div class="form-input__property">
+                <label class="form-input__label" for="country_name">Название страны:</label>
+                <input class="form-input__input-field" name="country_id" list="country" value="<?= $oldDataBook->getCountryId() ?>">
+                <datalist id="country">
+                    <?php $this->renderListCountry() ?>
+                </datalist>
+            </div>
+            <div class="form-input__property">
+                <label class="form-input__label" for="publisher_name">Автор:</label>
+                <input class="form-input__input-field" type="text" name="publisher_id" list="publisher" value="<?= $oldDataBook->getPublisherId() ?>">
+                <datalist id="publisher">
+                <?php $this->renderListPublisher(); ?>
+                </datalist>
+            </div>
+            <div class="form-input__property">
+                <label class="form-input__label" for="created_at">Дата выпуска:</label>
+                <input class="form-input__input-field" type="date" id="created_at" name="created_at" value="<?= $oldDataBook->getCreatedAt() ?>">
+            </div>
+            <div class="form-input__property">
+                <label class="form-input__label" for="price">Цена:</label>
+                <input class="form-input__input-field" type="text" id="price" name="price" value="<?= $oldDataBook->getPrice() ?>">
+            </div>
+            <div class="form-input__property">
+                <label class="form-input__label" for="category_name">Категория:</label>
+                <input class="form-input__input-field" type="text" name="category_id" list="category" value="<?= $oldDataBook->getCategoryId() ?>">
+                <datalist id="category">
+                    <?php $this->renderCategoryListWithParents() ?>
+                </datalist>
+
+            </div>
+            <div class="form-input__property">
+                <label class="form-input__label" for="annotation">Аннотация:</label>
+                <textarea class="form-input__input-field" id="annotation" name="annotation" rows="6" cols="50"><?= $oldDataBook->getAnnotation() ?></textarea>
+            </div>
+            <input class="form-input__button" type="submit" value="Изменить">
+        </form>
+    </main>
+</div>
+</body>
+</html>

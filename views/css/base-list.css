@@ -1,0 +1,37 @@
+.base-list {
+    font-size: 20px;
+
+    list-style-type: none;
+
+    height: min-content;
+    padding: 0;
+
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.base-list_full-screen {
+    width: 1200px;
+    flex-direction: row;
+}
+
+.base-list__card-info {
+    max-width: 280px;
+}
+
+.base-list__item {
+    padding: 20px;
+}
+
+.base-list__item_category {
+    display: inline-block;
+    padding: 8px;
+}
+
+.base-list__item_info {
+    padding: 16px 16px 16px 0px;
+}
+
+.base-list_column {
+    flex-direction: column;
+}

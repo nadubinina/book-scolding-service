@@ -1,0 +1,36 @@
+<?php
+/**
+ * @Var \App\Blocks\Pages\PersonalAccountPage $this
+ */
+
+$userData = $this->getUserInformation();
+?>
+
+<?php $this->renderHead();?>
+<body>
+    <div class="page-container page-container_theme-dark">
+    <?php $this->renderHeader(); ?>
+        <main class="main">
+        <div class="personal-account__nav">
+            <ul class="base-list base-list_column">
+                <li class="base-list__item"><a class="base-list__link" href="personal-account">Личная информация</a></li>
+                <li class="base-list__item"><a class="base-list__link" href="my-books">Забранированные книги</a></li>
+                <li class="base-list__item"><a class="base-list__link" href="update-user-info">Измнить данные аккаунта</a></li>
+                <li class="base-list__item">
+                    <form class="form-input" method="POST">
+                        <?php $this->renderToken(); ?>
+                        <input class="form-input__button" type="submit" id="logout" name="logout" value="Выйти их аккаунта">
+                    </form>
+                </li>
+            </ul>
+        </div>
+        <div class="personal-account__informatiom">
+            <h2 class="personal-account__title-information">Личная информация</h2>
+            <div class="form-input__property">
+                <label class="form-input__label" for="name">Логин:</label>
+                <input class="personal-accout__information" type="text" id="login" name="login" value="<?= $userData->getLogin() ?>" readonly>
+            </div>
+        </div>
+        </main>
+    </div>
+</body>

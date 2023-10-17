@@ -1,0 +1,32 @@
+<?php
+/**
+ * @Var \App\Blocks\Pages\AddLibraryPage $this
+ */
+?>
+
+<?php $this->renderHead();
+$this->renderHeader();?>
+<body>
+<div class="page-container page-container_theme-light page-container_center">
+    <main class="main main_column">
+        <h2 class="form-input__title">Добавление Библиотеки</h2>
+        <form class="form-input" method="POST">
+            <?php $this->renderToken(); ?>
+            <div class="form-input__property">
+                <label class="form-input__label" for="name">Название Библиотеки:</label>
+                <input class="form-input__input-field" type="text" id="name" name="name" required>
+            </div>
+            <div class="form-input__property">
+                <label class="form-input__label" for="country_name">Адрес:</label>
+                <input class="form-input__input-field" id="address" name="address" list="address">
+            </div>
+            <div class="form-input__property">
+                <label class="form-input__label" for="founding_date">Дата основания:</label>
+                <input class="form-input__input-field" type="date" id="founding_date" name="founding_date">
+            </div>
+            <input class="form-input__button" type="submit" value="Добавить">
+        </form>
+    </main>
+</div>
+</body>
+</html>

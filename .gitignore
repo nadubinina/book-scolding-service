@@ -1,0 +1,7 @@
+# Default ignored files
+/.idea
+/vendor/
+config.php
+.env
+/var/
+

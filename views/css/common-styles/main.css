@@ -1,0 +1,18 @@
+.main {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    width: 1200px;
+}
+
+.main_column {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.main_center::after {
+    justify-content: center;
+    align-items: center;
+}

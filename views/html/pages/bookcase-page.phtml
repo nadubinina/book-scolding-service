@@ -1,0 +1,26 @@
+<?php
+/**
+ * @Var \App\Blocks\Pages\BookcasePage $this
+ */
+
+$bookcaseData = $this->getEntity('bookcase');
+?>
+
+<?php $this->renderHead($bookcaseData->getName()); ?>
+    <body>
+        <div class="page-container page-container_theme-dark">
+            <?php $this->renderHeader(); ?>
+            <main class="main main_column">
+                <div class="button-container">
+                    <a class="button-container__button" href="<?= 'update-bookcase?id=' . $bookcaseData->getId() ?>"><img class="button__img" src="views/img/button-update.svg"></a>
+                    <a class="button-container__button" href="<?= 'delete-bookcase?id=' . $bookcaseData->getId() ?>"><img class="button__img" src="views/img/button-delete.svg"></a>
+                </div>
+                <?php $this->renderSeparator() ?>
+                <ul class="base-list base-list_full-screen">
+                    <?php $this->renderListBookcaseBooks(); ?>
+                </ul>
+
+            </main>
+        </div>
+    </body>
+</html>

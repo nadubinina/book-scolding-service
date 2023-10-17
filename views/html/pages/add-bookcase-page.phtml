@@ -1,0 +1,32 @@
+<?php
+/**
+ * @Var \App\Blocks\Pages\AddBookcasePage $this
+ */
+?>
+
+<?php $this->renderHead();
+$this->renderHeader(); ?>
+<body>
+<div class="page-container page-container_theme-light page-container_center">
+    <main class="main main_column">
+        <h2 class="form-input__title">Добавление книжного шкафа в библиотеку</h2>
+        <form class="form-input" method="POST">
+            <?php $this->renderToken(); ?>
+            <div class="form-input__property">
+                <label class="form-input__label" for="name">Название книжного шкафа:</label>
+                <input class="form-input__input-field" type="text" id="name" name="name" required>
+            </div>
+            <div class="form-input__property">
+                <label class="form-input__label" for="number_rows">Количество рядов:</label>
+                <input class="form-input__input-field" id="number_rows" name="number_rows">
+            </div>
+            <div class="form-input__property">
+                <label class="form-input__label" for="library_id">Библиотека:</label>
+                <input class="form-input__input-field" id="library_id" name="library_id"  value="<?= $this->getLibraryId() ?>" readonly>
+            </div>
+            <input class="form-input__button" type="submit" value="Добавить">
+        </form>
+    </main>
+</div>
+</body>
+</html>

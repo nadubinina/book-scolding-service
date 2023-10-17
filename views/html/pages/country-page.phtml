@@ -1,0 +1,21 @@
+<?php
+/**
+ * @Var \App\Blocks\Pages\CountryPage $this
+ */
+
+$countryData = $this->getEntity('country');
+?>
+
+<?php $this->renderHead() ?>
+    <body>
+        <div class="page-container page-container_theme-dark">
+            <?php $this->renderHeader(); ?>
+            <main class="main main_column">
+                <h1 class="list-title"> <?= $countryData->getName(); ?></h1>
+                <ul class="base-list base-list_full-screen">
+                    <?php $this->renderListCountry() ?>
+                </ul>
+            </main>
+        </div>
+    </body>
+</html>

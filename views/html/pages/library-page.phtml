@@ -1,0 +1,38 @@
+<?php
+/**
+ * @Var \App\Blocks\Pages\LibraryPage $this
+ */
+
+$libraryData = $this->getEntity('library');
+?>
+
+<?php $this->renderHead($libraryData->getName()); ?>
+    <body>
+        <div class="page-container page-container_theme-dark">
+            <?php $this->renderHeader(); ?>
+            <main class="main">
+                <div class="infomation-block information-block_base-info">
+                    <img src="<?= $libraryData->getImage(); ?>" alt="Фотография Библиотеки" class="base-card__cover">
+                    <ul class="base-list base-list_card-info">
+                        <li class="base-list__item base-list__item_info">Название: <?= $libraryData->getName()?></li>
+                        <li class="base-list__item base-list__item_info">Дата основания: <?= $libraryData->getFoundingDate(); ?></li>
+                        <li class="base-list__item base-list__item_info">Адрес: <?= $libraryData->getAddress(); ?></li>
+                        <li class="base-list__item base-list__item_info">Количество произведений: <?= $this->getNumberOfBooks($libraryData)?></li>
+                    </ul>
+                    <div class="button-container">
+                        <a class="button-container__button" href="<?= 'update-library?id=' . $libraryData->getId() ?>"><img class="button__img" src="views/img/button-update.svg"></a>
+                        <a class="button-container__button" href="<?= 'delete--library?id=' . $libraryData->getId() ?>"><img class="button__img" src="views/img/button-delete.svg"></a>
+                    </div>
+                </div>
+                <div class="information-block">
+                    <div class="button-container">
+                        <a class="button-container__button" href="/<?= 'add-bookcase?library-id=' . $libraryData->getId() ?>"><img class="button__img" src="views/img/button-add.png"></a>
+                    </div>
+                    <ul class="base-list">
+                        <?php $this->renderListLibraryBookcases(); ?>
+                    </ul>
+                </div>
+            </main>
+        </div>
+    </body>
+</html>

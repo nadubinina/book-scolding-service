@@ -1,0 +1,46 @@
+<?php
+/**
+ * @Var App\Blocks\Pages\UpdatePublisherPage $this
+ */
+
+$oldDataPublisher = $this->getEntity('publisher');
+?>
+
+<?php $this->renderHead() ?>
+<body>
+<div class="page-container page-container_theme-light page-container_center">
+    <main class="main main_column">
+        <h2 class="form-input__title">Удаление писателя</h2>
+        <p class="form-input__warning">Внимание! При удалении писателя все его книги удаляются!</p>
+        <form class="form-input" method="POST">
+            <?php $this->renderToken(); ?>
+            <div class="form-input__property">
+                <label class="form-input__label" for="name">Писатель:</label>
+                <input class="form-input__input-field" type="text" id="id" name="id" value="<?= $this->getPublisherId() ?>" readonly>
+            </div>
+            <div class="form-input__property">
+                <label class="form-input__label" for="name">Имя писателя:</label>
+                <input class="form-input__input-field" type="text" id="name" name="name" value="<?= $oldDataPublisher->getName() ?>">
+            </div>
+            <div class="form-input__property">
+                <label class="form-input__label" for="surname">Фамилия писателя:</label>
+                <input class="form-input__input-field" id="surname" name="surname" value="<?= $oldDataPublisher->getSurname() ?>">
+            </div>
+            <div class="form-input__property">
+                <label class="form-input__label" for="date_of_birth">Дата рождения:</label>
+                <input class="form-input__input-field" type="date" id="date_of_birth" name="date_of_birth" value="<?= $oldDataPublisher->getDateOfBirth() ?>">
+            </div>
+            <div class="form-input__property">
+                <label class="form-input__label" for="date_of_death">Дата смерти:</label>
+                <input class="form-input__input-field" type="date" id="date_of_death" name="date_of_death" value="<?= $oldDataPublisher->getDateOfDeath() ?>">
+            </div>
+            <div class="form-input__property">
+                <label class="form-input__label" for="annotation">Аннотация:</label>
+                <textarea class="form-input__input-field" id="annotation" name="annotation" rows="6" cols="50"><?= $oldDataPublisher->getAnnotation() ?></textarea>
+            </div>
+            <input class="form-input__button" type="submit" value="Удалить">
+        </form>
+    </main>
+</div>
+</body>
+</html>
