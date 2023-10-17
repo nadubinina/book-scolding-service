@@ -1,0 +1,12 @@
+<?php
+
+/**
+ * @Var \App\Blocks\AbstractBlock $this
+ */
+
+    foreach ($this->getDataBlock() as $dataItem):?>
+        <option value="<?= $dataItem['id']; ?>">
+            <?= $dataItem['name']; ?>
+        </option>
+    <?php endforeach; ?>
+

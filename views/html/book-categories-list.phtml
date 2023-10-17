@@ -1,0 +1,15 @@
+<?php
+/**
+ * @Var \App\Blocks\AbstractBlock $this
+ */
+?>
+
+<ul class="base-list">
+    <?php foreach ($this->getDataBlock() as $category): ?>
+        <li class="base-list__item_category">
+            <div class="base-card_category">
+                <a class="base-link" href="<?= $this->getPageLink() . '?id=' . $category->getId(); ?>"><?= $category->getName(); ?></a>
+            </div>
+        </li>
+    <?php endforeach; ?>
+</ul>

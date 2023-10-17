@@ -1,0 +1,21 @@
+<?php
+/**
+ * @Var \App\Blocks\Pages\BooksPage $this
+ */
+?>
+
+<?php $this->renderHead() ?>
+    <body>
+        <div class="page-container page-container_theme-dark">
+            <?php $this->renderHeader(); ?>
+            <main class="main main_column">
+                <div class="button-container">
+                    <a class="button-container__button" href="/add-book"><img class="button__img" src="views/img/button-add.png"></a>
+                </div>
+                <ul class="base-list base-list_full-screen">
+                    <?php $this->renderListEntity('book') ?>
+                </ul>
+            </main>
+        </div>
+    </body>
+</html>

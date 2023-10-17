@@ -1,0 +1,28 @@
+.page-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+
+    background-color: var(--current-background-color);
+    color: var(--current-color);
+
+    min-height: 100vh;
+}
+
+.page-container_theme-dark{
+    --current-background-color: #1E1B26;
+    --current-color: antiquewhite;
+    --current-protruding-block-color: #25232f;
+}
+
+.page-container_theme-light {
+    --current-background-color:antiquewhite;
+    --current-color: #1E1B26;
+}
+
+.page-container_center {
+    justify-content: center;
+    align-items: center;
+}

@@ -1,0 +1,32 @@
+<?php
+/**
+ * @Var \App\Blocks\Pages\AddBookCopyPage $this
+ */
+$this->renderHead();
+$this->renderHeader(); ?>
+<body>
+<div class="page-container page-container_theme-light page-container_center">
+    <main class="main main_column">
+        <h2 class="form-input__title">Добавление книги</h2>
+        <form class="form-input" method="POST">
+            <?php $this->renderToken(); ?>
+            <div class="form-input__property">
+                <label class="form-input__label" for="name">Книга:</label>
+                <input class="form-input__input-field" type="text" id="book_id" name="book_id" value="<?= $this->getBookId() ?>" readonly>
+            </div>
+            <div class="form-input__property">
+                <label class="form-input__label" for="copy_number">Индивидуальный номер копии книги:</label>
+                <input class="form-input__input-field" name="copy_number" id="copy_number" required>
+            </div>
+            <div class="form-input__property">
+                <label class="form-input__label" for="bookcase_id">Место нахождение:</label>
+                <input class="form-input__input-field" type="text" name="bookcase_id" list="bookcase_id">
+                <datalist id="bookcase_id">
+                <?php $this->renderListLocation() ?>
+                </datalist>
+            </div>
+            <input class="form-input__button" type="submit" value="Добавить">
+        </form>
+    </main>
+</body>
+</html>

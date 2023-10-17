@@ -1,0 +1,5 @@
+.base-link {
+    text-decoration: none;
+    color: var(--current-color);
+    font-size: 20px;
+}

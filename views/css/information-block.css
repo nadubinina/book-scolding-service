@@ -1,0 +1,23 @@
+.information-block {
+    width: 900px;
+    font-size: 20px;
+}
+
+.information-block_column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.information-block_base-info {
+    width: 280px;
+    height: min-content;
+
+    border-radius: 16px;
+    background-color: var(--current-protruding-block-color);
+}
+
+.information-block__annotation_full-screen {
+    width: 1200px;
+}

@@ -1,0 +1,39 @@
+.base-card {
+    color: var(--current-color);
+
+    width: 260px;
+    height: 400px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.base-card__cover {
+    width: 100%;
+
+    background-size: 100%;
+
+    border-radius: 16px;
+    border: 1px solid var(--current-background-color);
+}
+
+.base-card__title {
+    font-size: 20px;
+
+    margin: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.base-card_category {
+    padding: 4px;
+
+    border: 1px solid var(--current-color);
+    border-radius: 8px;
+
+    width: max-content;
+    height: auto;
+}

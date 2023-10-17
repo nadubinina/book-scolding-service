@@ -1,0 +1,22 @@
+<?php
+/**
+ * @Var \App\Blocks\Pages\NotFoundPage $this
+ */
+
+use App\Models\Session;
+
+?>
+
+<?php $this->renderHead() ?>
+<body class="body">
+    <div class="main">
+        <img class="background-not-found" src="/views/img/not-found-background.png">
+        <div class="code-status-not-found main__code-status-not-found">
+            <p class="code-status-not-found__number">403</p>
+            <p class="code-status-not-found__text">Forbidden</p>
+<?php var_dump(Session::getToken());
+var_dump($_POST['token']);
+die; ?>        </div>
+    </div>
+</body>
+</html>

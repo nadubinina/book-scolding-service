@@ -1,0 +1,36 @@
+<?php
+/**
+ * @Var App\Blocks\Pages\UpdateBookCopyPage $this
+ */
+
+$oldDataBookCopy = $this->getEntity('book_copy');
+?>
+
+<?php $this->renderHead();
+$this->renderHeader(); ?><body>
+<div class="page-container page-container_theme-light page-container_center">
+    <main class="main main_column">
+        <h2 class="form-input__title">Удаление книги копии</h2>
+        <form class="form-input" method="POST">
+            <?php $this->renderToken(); ?>
+            <div class="form-input__property">
+                <label class="form-input__label" for="name">Копия книги:</label>
+                <input class="form-input__input-field" type="text" id="id" name="id" value="<?= $this->getBookCopyId() ?>" readonly>
+            </div>
+            <div class="form-input__property">
+                <label class="form-input__label" for="name">Книга:</label>
+                <input class="form-input__input-field" type="text" id="book_id" name="book_id" value="<?= $oldDataBookCopy->getBookId() ?>" readonly>
+            </div>
+            <div class="form-input__property">
+                <label class="form-input__label" for="copy_number">Индивидуальный номер копии книги:</label>
+                <input class="form-input__input-field" name="copy_number" id="copy_number" value="<?= $oldDataBookCopy->getCopyNumber() ?>" readonly>
+            </div>
+            <div class="form-input__property">
+                <label class="form-input__label" for="bookcase_id">Место нахождение:</label>
+                <input class="form-input__input-field" type="text" name="bookcase_id" value="<?= $oldDataBookCopy->getBookcaseId() ?>" readonly>
+            </div>
+            <input class="form-input__button" type="submit" value="Удалить">
+        </form>
+    </main>
+</body>
+</html>

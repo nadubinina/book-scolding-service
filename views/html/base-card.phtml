@@ -1,0 +1,21 @@
+<?php
+
+/**
+ * @Var \App\Blocks\AbstractBlock $this
+ */
+
+    $dataCard = $this->getDataBlock();
+    $pageLink = $this->getPageLink();
+    $name = $dataCard->getname();
+    if (method_exists($dataCard, 'getSurname')) {
+        $name .= ' ' . $dataCard->getSurname();
+    }
+
+?>
+<a class="base-link" href="<?= $pageLink . '?id=' . $dataCard->getId()?>">
+    <div class="base-card">
+        <img src="<?= $dataCard->getImage(); ?>" class="base-card__cover">
+        <h2 class="base-card__title"><?= $name; ?></h2>
+    </div>
+</a>
+

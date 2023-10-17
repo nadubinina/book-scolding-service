@@ -1,0 +1,12 @@
+<?php
+
+/**
+ * @Var \App\Blocks\AbstractBlock $this
+ */
+
+$pageLink = $this->getPageLink();
+$dataPage = $this->getDataBlock();
+
+?>
+
+<a class="base-link" href="<?= $pageLink; ?>"><?= $dataPage->getName(); ?></a>

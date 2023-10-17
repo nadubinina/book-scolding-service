@@ -1,0 +1,47 @@
+.body {
+    margin: 0px;
+}
+
+.background-not-found {
+    width: 100vw;
+}
+
+.code-status-not-found {
+    
+    position: relative;
+    text-align: center;
+    margin-top: -720px;
+    padding-top: 0px;
+
+    color:navy;
+    font-family: "Pingwing";
+}
+
+.code-status-not-found__number {
+    font-size: 200px;
+    margin-bottom: 0px;
+}
+
+.code-status-not-found__text {
+    font-size: 150px;
+    margin-top: -40px; 
+}
+
+
+.code-status-not-found__resource-link {
+    font-size: 50px;
+    color:midnightblue;
+
+    text-decoration: none;
+}
+
+@font-face {
+    font-family: "Pingwing";
+    src: url("/views/fonts/Pingwing.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+
+code-status-not-found__text_mini {
+    font-size: 20px;
+}

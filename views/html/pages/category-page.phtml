@@ -1,0 +1,30 @@
+<?php
+/**
+ * @Var \App\Blocks\Pages\CategoryPage $this
+ */
+
+$categoryData = $this->getEntity('category');
+?>
+
+<?php $this->renderHead($categoryData->getName()); ?>
+<body>
+<div class="page-container page-container_theme-dark">
+    <?php $this->renderHeader(); ?>
+    <main class="main main_column">
+        <div class="button-container">
+            <a class="button-container__button" href="<?= 'update-category?id=' . $categoryData->getId() ?>"><img class="button__img" src="views/img/button-update.svg"></a>
+            <a class="button-container__button" href="<?= 'delete-category?id=' . $categoryData->getId() ?>"><img class="button__img" src="views/img/button-delete.svg"></a>
+        </div>
+        <div class="information-block information-block__annotation_full-screen">
+            <p class="information-text">
+                <?= $categoryData->getAnnotation(); ?>
+            </p>
+            <?php  $this->renderSeparator(); ?>
+            <ul class="base-list base-list_full-screen">
+                <?php $this->renderListCategoryBooks(); ?>
+            </ul>
+        </div>
+    </main>
+</div>
+</body>
+</html>

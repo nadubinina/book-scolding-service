@@ -1,0 +1,40 @@
+<?php
+/**
+ * @Var UpdateLibraryPage $this
+ */
+
+use App\Blocks\Pages\UpdateLibraryPage;
+
+$oldDataLibrary = $this->getEntity('library');
+?>
+
+<?php $this->renderHead();
+$this->renderHeader(); ?>
+<body>
+<div class="page-container page-container_theme-light page-container_center">
+    <main class="main main_column">
+        <h2 class="form-input__title">Изменение Библиотеки</h2>
+        <form class="form-input" method="POST">
+            <?php $this->renderToken(); ?>
+            <div class="form-input__property">
+                <label class="form-input__label" for="name">Библиотека:</label>
+                <input class="form-input__input-field" type="text" id="id" name="id" value="<?= $this->getLibraryId() ?>" readonly>
+            </div>
+            <div class="form-input__property">
+                <label class="form-input__label" for="name">Название Библиотеки:</label>
+                <input class="form-input__input-field" type="text" id="name" name="name" value="<?= $oldDataLibrary->getName() ?>">
+            </div>
+            <div class="form-input__property">
+                <label class="form-input__label" for="country_name">Адрес:</label>
+                <input class="form-input__input-field" id="address" name="address" list="address" value="<?= $oldDataLibrary->getAddress() ?>">
+            </div>
+            <div class="form-input__property">
+                <label class="form-input__label" for="founding_date">Дата основания:</label>
+                <input class="form-input__input-field" type="date" id="founding_date" name="founding_date" value="<?= $oldDataLibrary->getFoundingDate() ?>">
+            </div>
+            <input class="form-input__button" type="submit" value="Изменить">
+        </form>
+    </main>
+</div>
+</body>
+</html>

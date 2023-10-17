@@ -1,0 +1,16 @@
+<?php
+/**
+ * @Var \App\Blocks\AbstractBlock $this
+ */
+$pageLink = $this->getPageLink();
+?>
+
+    <?php foreach ($this->getDataBlock() as $entity): ?>
+        <li class="base-list__item">
+
+            <?php (new \App\Blocks\AbstractBlock())->setData($entity)
+                                            ->setPageLink($pageLink)
+                                            ->setBlockLink('base-card.phtml')
+                                            ->render(); ?>
+        </li>
+    <?php endforeach; ?>
